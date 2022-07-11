@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "253558409875",
+    "project_id": "smart-health-consulting-7b89e",
+    "storage_bucket": "smart-health-consulting-7b89e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253558409875:android:510eaa69f0f57e2f1b1b66",
+        "android_client_info": {
+          "package_name": "com.example.smarthealthconsultingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253558409875-g6oc65ccm09d6k4q7ck7lh88e39r3ji2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBtXG9Rc3Y4AmUcR9lMZUAIXdyESCaZN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253558409875-g6oc65ccm09d6k4q7ck7lh88e39r3ji2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
