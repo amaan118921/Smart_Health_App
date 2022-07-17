@@ -102,7 +102,8 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                     showToast("Welcome Back")
                 }
                 repo.setSharedPreferences(Constants.PHONE, Constants.PHONE)
-                replaceFragment(Constants.PATIENT_HOME)
+                removeOTP()
+                initViewPager()
             } else {
                 dialog.dismiss()
                 showToast("Incorrect OTP")
