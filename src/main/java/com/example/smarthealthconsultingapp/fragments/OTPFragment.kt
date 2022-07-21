@@ -22,6 +22,7 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
         return R.layout.fragment_otp
     }
 
+    private var key: String? = null
     private var phone: String? = null
     private var mobile: String? = null
     private lateinit var userid: String
@@ -36,6 +37,7 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        key = arguments?.getString(Constants.AUTHENTICATE)
         mobile = arguments?.getString(Constants.PHONE)
         phone = "+91$mobile"
     }
@@ -67,7 +69,7 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                 if (p0 is FirebaseAuthInvalidCredentialsException) {
                     showToast("Invalid Request")
                 } else {
-                    showToast(p0.message.toString())
+//                    showToast(p0.message.toString())
                 }
                popBackStack()
             }
@@ -101,9 +103,13 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                 } else {
                     showToast("Welcome Back")
                 }
-                repo.setSharedPreferences(Constants.PHONE, Constants.PHONE)
-                removeOTP()
-                initViewPager()
+                if(key!=Constants.DOC_HOME) phone?.let {
+                    repo.setSharedPreferences(Constants.PHONE,
+                        it
+                    )
+                }
+                else phone?.let { repo.setSharedPreferences(Constants.DOC_PHONE, it) }
+                finishAndStart()
             } else {
                 dialog.dismiss()
                 showToast("Incorrect OTP")

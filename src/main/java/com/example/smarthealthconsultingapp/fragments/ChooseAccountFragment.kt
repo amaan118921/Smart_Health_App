@@ -16,11 +16,23 @@ class ChooseAccountFragment: BaseFragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cvPatient.setOnClickListener(this)
+        cvDoctors.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when(view?.id) {
-            R.id.cvPatient -> addFragment(Constants.PATIENT_LOGIN_ID, null)
+            R.id.cvPatient -> {
+                Bundle().apply {
+                    putString(Constants.AUTHENTICATE, Constants.PATIENT_HOME)
+                    addFragment(Constants.PATIENT_LOGIN_ID,this)
+                }
+            }
+            R.id.cvDoctors -> {
+                Bundle().apply {
+                    putString(Constants.AUTHENTICATE, Constants.DOC_HOME)
+                    addFragment(Constants.PATIENT_LOGIN_ID,this)
+                }
+            }
         }
     }
 

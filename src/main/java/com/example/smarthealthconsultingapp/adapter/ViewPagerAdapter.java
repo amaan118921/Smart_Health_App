@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.smarthealthconsultingapp.fragments.InspectHealthFragment;
 import com.example.smarthealthconsultingapp.fragments.SearchDoctorFragment;
 import com.example.smarthealthconsultingapp.fragments.patients.PatientHomeFragment;
 import com.example.smarthealthconsultingapp.fragments.patients.PatientProfileFragment;
@@ -25,6 +26,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new PatientHomeFragment();
             case 1:
+                return new InspectHealthFragment();
+            case 2:
                 return new SearchDoctorFragment();
             default:
                 return new PatientProfileFragment();
@@ -33,7 +36,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        int size = 3;
+        int size = 4;
         return size;
     }
 }

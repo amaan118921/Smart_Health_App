@@ -38,12 +38,18 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
 
     private fun authenticate() {
         if(repo.getSharedPreferences(Constants.PHONE)!="") {
-            addFragment(Constants.SPLASH_ID,null)
             key = Constants.PATIENT_HOME
+            Bundle().apply {
+                putString(Constants.AUTHENTICATE, key)
+                addFragment(Constants.SPLASH_ID,this)
+            }
         }
         else if(repo.getSharedPreferences(Constants.DOC_PHONE)!="") {
-            addFragment(Constants.SPLASH_ID,null)
             key = Constants.DOC_HOME
+            Bundle().apply {
+                putString(Constants.AUTHENTICATE, key)
+                addFragment(Constants.SPLASH_ID,this)
+            }
         }
         else addFragment(Constants.CHOOSE_ACCOUNT_ID,null)
     }
@@ -54,6 +60,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
         getReqFragmentManager().commit {
             setReorderingAllowed(true)
             add(R.id.fragment_container_view, Constants.getFragmentClass(id), bundle, id)
+            addToBackStack(id)
         }
     }
 
@@ -85,8 +92,9 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
             when(item.itemId) {
                 R.id.btnHome -> viewPager.setCurrentItem(0, true)
-                R.id.btnSearch -> viewPager.setCurrentItem(1, true)
-                else -> viewPager.setCurrentItem(2, true)
+                R.id.btnInspect -> viewPager.setCurrentItem(1, true)
+                R.id.btnSearch -> viewPager.setCurrentItem(2,true)
+                else -> viewPager.setCurrentItem(3, true)
             }
         return false
     }
@@ -102,6 +110,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
             2 -> {
                 btmNavigation.menu.getItem(2).isChecked = true
             }
+            else -> btmNavigation.menu.getItem(3).isChecked = true
         }
     }
 
@@ -111,6 +120,10 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
 
     fun showBottomNav() {
         btmNavigation.makeVisible()
+    }
+
+    fun getKey(): String?  {
+        return key
     }
 
 }

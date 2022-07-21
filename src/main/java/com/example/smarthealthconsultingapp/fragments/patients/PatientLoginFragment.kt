@@ -9,8 +9,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_patient_login.*
 @AndroidEntryPoint
 class PatientLoginFragment: BaseFragment(), View.OnClickListener {
+
+    private var key: String? = null
+
     override fun getLayoutRes(): Int {
         return R.layout.fragment_patient_login
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        key = arguments?.getString(Constants.AUTHENTICATE)
     }
 
 
@@ -31,6 +39,7 @@ class PatientLoginFragment: BaseFragment(), View.OnClickListener {
         else {
             Bundle().apply {
                 putString(Constants.PHONE, phone)
+                putString(Constants.AUTHENTICATE, key)
                 addFragment(Constants.OTP_ID, this)
             }
         }

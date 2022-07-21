@@ -5,6 +5,11 @@
         android:icon="@drawable/home"
         android:title="@string/home" />
     <item
+        android:id="@+id/btnInspect"
+        android:icon="@drawable/health"
+        android:title="@string/inspect_health" />
+
+    <item
         android:id="@+id/btnSearch"
         android:icon="@drawable/search"
         android:title="@string/search_doctors" />
@@ -12,6 +17,4 @@
         android:id="@+id/btnProfile"
         android:icon="@drawable/user"
         android:title="@string/profile" />
-
-
 </menu>

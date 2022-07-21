@@ -11,4 +11,5 @@
     <color name="app_theme">#ef5350</color>
 
     <color name="off_black">#25000000</color>
+    <color name="off_white">#20FFFFFF</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.smarthealthconsultingapp.fragments
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,9 @@ import androidx.fragment.app.commit
 import com.example.smarthealthconsultingapp.activity.MainActivity
 import com.example.smarthealthconsultingapp.R
 import com.example.smarthealthconsultingapp.utils.Constants
+import com.example.smarthealthconsultingapp.utils.makeVisible
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.action_bar.*
 
 @AndroidEntryPoint
 abstract class BaseFragment: Fragment() {
@@ -42,6 +45,10 @@ abstract class BaseFragment: Fragment() {
         }
     }
 
+    fun finishActivity() {
+        requireActivity().finish()
+    }
+
     fun popBackStack() {
         getReqFragmentManager().popBackStack()
     }
@@ -57,18 +64,6 @@ abstract class BaseFragment: Fragment() {
         }
     }
 
-    fun removeOTP() {
-//        getReqFragmentManager().commit {
-//            getReqFragmentManager().findFragmentByTag(Constants.OTP_ID)
-//                ?.let { remove(it) }
-//        }
-        getReqFragmentManager().popBackStack()
-        getReqFragmentManager().popBackStack()
-        getReqFragmentManager().commit {
-            getReqFragmentManager().findFragmentByTag(Constants.CHOOSE_ACCOUNT_ID)
-                ?.let { remove(it) }
-        }
-    }
 
     fun initViewPager() {
         (requireActivity() as MainActivity).initViewPagerWithBottom()
@@ -80,6 +75,15 @@ abstract class BaseFragment: Fragment() {
 
     fun bottomGone() {
         (requireActivity() as MainActivity).hideBottomNav()
+    }
+
+    fun finishAndStart() {
+        (requireActivity() as MainActivity).finish()
+        startActivity(Intent(requireContext(), MainActivity::class.java))
+    }
+
+    fun makeBellVisible() {
+        ivBell.makeVisible()
     }
 
     private fun getReqFragmentManager(): FragmentManager = (requireActivity() as MainActivity).getReqFragmentManager()
