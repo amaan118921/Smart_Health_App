@@ -24,13 +24,13 @@ class ChooseAccountFragment: BaseFragment(), View.OnClickListener {
             R.id.cvPatient -> {
                 Bundle().apply {
                     putString(Constants.AUTHENTICATE, Constants.PATIENT_HOME)
-                    addFragment(Constants.PATIENT_LOGIN_ID,this)
+                    addFragment(Constants.PATIENT_LOGIN_ID,this, true)
                 }
             }
             R.id.cvDoctors -> {
                 Bundle().apply {
                     putString(Constants.AUTHENTICATE, Constants.DOC_HOME)
-                    addFragment(Constants.PATIENT_LOGIN_ID,this)
+                    addFragment(Constants.PATIENT_LOGIN_ID,this, true)
                 }
             }
         }

@@ -40,7 +40,7 @@ class PatientLoginFragment: BaseFragment(), View.OnClickListener {
             Bundle().apply {
                 putString(Constants.PHONE, phone)
                 putString(Constants.AUTHENTICATE, key)
-                addFragment(Constants.OTP_ID, this)
+                addFragment(Constants.OTP_ID, this, true)
             }
         }
     }

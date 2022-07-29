@@ -9,7 +9,7 @@
         android:id="@+id/ivSplash"
         android:layout_width="105dp"
         android:layout_height="105dp"
-        android:src="@drawable/healthcare"
+        android:src="@drawable/healthcareapp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

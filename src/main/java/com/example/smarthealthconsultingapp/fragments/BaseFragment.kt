@@ -30,9 +30,10 @@ abstract class BaseFragment: Fragment() {
     }
 
 
-    fun addFragment(id: String, bundle: Bundle?) {
+    fun addFragment(id: String, bundle: Bundle?, animations: Boolean) {
         getReqFragmentManager().commit {
             setReorderingAllowed(true)
+            if(animations) setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
             add(R.id.fragment_container_view, Constants.getFragmentClass(id), bundle, id)
             addToBackStack(id)
         }
@@ -41,6 +42,7 @@ abstract class BaseFragment: Fragment() {
     fun replaceFragment(id: String) {
         getReqFragmentManager().commit {
             setReorderingAllowed(true)
+            setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
             replace(R.id.fragment_container_view, Constants.getFragmentClass(id), null)
         }
     }

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager.widget.ViewPager
 import com.example.smarthealthconsultingapp.R
 import com.example.smarthealthconsultingapp.adapter.ViewPagerAdapter
+import com.example.smarthealthconsultingapp.bottomSheet.InspectHealthBottomSheet
 import com.example.smarthealthconsultingapp.utils.Constants
 import com.example.smarthealthconsultingapp.utils.Repo
 import com.example.smarthealthconsultingapp.utils.makeGone
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
     private fun addFragment(id: String, bundle: Bundle?) {
         getReqFragmentManager().commit {
             setReorderingAllowed(true)
+            setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
             add(R.id.fragment_container_view, Constants.getFragmentClass(id), bundle, id)
             addToBackStack(id)
         }
@@ -92,11 +94,19 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
             when(item.itemId) {
                 R.id.btnHome -> viewPager.setCurrentItem(0, true)
-                R.id.btnInspect -> viewPager.setCurrentItem(1, true)
-                R.id.btnSearch -> viewPager.setCurrentItem(2,true)
+                R.id.btnInspect -> goToInspect()
+                R.id.btnSearch -> goToSearch()
                 else -> viewPager.setCurrentItem(3, true)
             }
         return false
+    }
+
+    private fun goToSearch() {
+        viewPager.setCurrentItem(2,true)
+    }
+
+    private fun goToInspect() {
+        addFragment(Constants.INSPECT_ID, null)
     }
 
     private fun changeBottomTabByPosition(position: Int) {

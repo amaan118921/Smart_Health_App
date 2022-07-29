@@ -101,6 +101,8 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                 if (newUser) {
                     showToast("Verification Successful")
                 } else {
+                    if(key==Constants.DOC_HOME)
+                        repo.setSharedPreferences(Constants.IS_LOGGED_IN, Constants.IS_LOGGED_IN)
                     showToast("Welcome Back")
                 }
                 if(key!=Constants.DOC_HOME) phone?.let {
@@ -108,7 +110,10 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                         it
                     )
                 }
-                else phone?.let { repo.setSharedPreferences(Constants.DOC_PHONE, it) }
+                else phone?.let {
+                    repo.setSharedPreferences(Constants.DOC_PHONE, it)
+
+                }
                 finishAndStart()
             } else {
                 dialog.dismiss()

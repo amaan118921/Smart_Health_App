@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="tab_layout_style" parent="Widget.MaterialComponents.TabLayout">
-        <item name="android:labelTextSize">12sp</item>
+    <style name="tab_layout_style" parent="Widget.Design.TabLayout">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 </resources>

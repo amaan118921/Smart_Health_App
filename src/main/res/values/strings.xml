@@ -21,4 +21,22 @@
     <string name="inspect_health">Inspect Health</string>
     <string name="pending_cases">Pending Cases</string>
     <string name="past_cases">Past Cases</string>
+    <string name="complete_your_details">Complete your details</string>
+    <string name="enter_your_name">Enter your name…</string>
+    <string name="enter_your_college">Enter your college…</string>
+    <string name="enter_your_degree">Enter your degree...</string>
+    <string name="enter_your_speciality">Enter your speciality...</string>
+    <string name="save">Save</string>
+    <string name="inspect_your_health_by_specifying_symptoms">Inspect your health by specifying \nsymptoms</string>
+    <string name="headache">Headache</string>
+    <string name="submit">Submit</string>
+    <string name="search_doctor">Search Doctor</string>
+    <string name="search_by_name">Search by name...</string>
+    <string name="dr_amaan_ur_rahman">Dr. Amaan Ur Rahman</string>
+    <string name="m_b_b_s">M.B.B.S</string>
+    <string name="active">Active</string>
+    <string name="offline">Offline</string>
+    <string name="sign_out">Sign out</string>
+    <string name="amaan">Amaan</string>
+    <string name="search">Search</string>
 </resources>

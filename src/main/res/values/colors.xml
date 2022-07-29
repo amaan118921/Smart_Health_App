@@ -12,4 +12,7 @@
 
     <color name="off_black">#25000000</color>
     <color name="off_white">#20FFFFFF</color>
+    <color name="transparent_white">#95FFFFFF</color>
+
+    <color name="trans">#38ffffff</color>
 </resources>

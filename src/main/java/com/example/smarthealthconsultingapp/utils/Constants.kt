@@ -1,9 +1,9 @@
 package com.example.smarthealthconsultingapp.utils
 
 import androidx.fragment.app.Fragment
-import com.example.smarthealthconsultingapp.fragments.ChooseAccountFragment
-import com.example.smarthealthconsultingapp.fragments.OTPFragment
-import com.example.smarthealthconsultingapp.fragments.SplashFragment
+import com.example.smarthealthconsultingapp.bottomSheet.InspectHealthBottomSheet
+import com.example.smarthealthconsultingapp.fragments.*
+import com.example.smarthealthconsultingapp.fragments.doc.DocDetailsFragment
 import com.example.smarthealthconsultingapp.fragments.doc.DocHomeFragment
 import com.example.smarthealthconsultingapp.fragments.patients.PatientHomeFragment
 import com.example.smarthealthconsultingapp.fragments.patients.PatientLoginFragment
@@ -19,7 +19,13 @@ class Constants {
         const val DOC_HOME = "DOC_HOME"
         const val DOC_PHONE = "DOC_PHONE"
         const val SPLASH_ID = "SPLASH_ID"
+        const val IS_LOGGED_IN = "IS_LOGGED_IN"
         const val AUTHENTICATE = "AUTHENTICATE"
+        const val PROFILE_ID = "PROFILE_ID"
+        const val INSPECT_ID = "INSPECT_ID"
+        const val SEARCH_ID = "SEARCH_ID"
+        const val DOC_SEARCH_ID = "DOC_SEARCH_ID"
+        const val DOC_MODEL_LIST = "DOC_MODEL_LIST"
 
         fun getFragmentClass(id: String): Class<Fragment> {
             return when(id) {
@@ -29,6 +35,10 @@ class Constants {
                 OTP_ID -> OTPFragment::class.java as Class<Fragment>
                 PATIENT_HOME -> PatientHomeFragment::class.java as Class<Fragment>
                 DOC_HOME -> DocHomeFragment::class.java as Class<Fragment>
+                PROFILE_ID -> DocDetailsFragment::class.java as Class<Fragment>
+                INSPECT_ID -> InspectHealthFragment::class.java as Class<Fragment>
+                SEARCH_ID -> SearchDoctorFragment::class.java as Class<Fragment>
+                DOC_SEARCH_ID -> SearchFragment::class.java as Class<Fragment>
                 else -> ChooseAccountFragment::class.java as Class<Fragment>
             }
         }
