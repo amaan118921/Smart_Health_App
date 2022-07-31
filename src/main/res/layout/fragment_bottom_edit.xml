@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="25dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHeader"
+        android:gravity="start"
+        android:textStyle="bold"
+        android:text="@string/enter_your_name"
+        android:textSize="13sp"
+        android:fontFamily="@font/spartanreg"
+        android:textColor="@color/app_theme"
+        app:layout_constraintStart_toStartOf="@id/et"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et"
+        app:layout_constraintTop_toBottomOf="@id/tvHeader"
+        android:backgroundTint="@color/app_theme"
+        android:textColor="@color/app_theme"
+        android:textSize="14sp"
+        tools:text="Amaan Ur Rahman"
+        android:textStyle="bold"
+        android:fontFamily="@font/spartanmedium500"
+        android:textCursorDrawable="@null"
+        android:focusedByDefault="true"
+        android:layout_marginTop="15dp"
+        android:maxLines="1"
+        android:layout_marginHorizontal="10dp"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCancel"
+        android:text="@string/cancel"
+        android:textColor="@color/app_theme"
+        android:textSize="12sp"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toTopOf="@id/btnSave"
+        app:layout_constraintEnd_toStartOf="@id/btnSave"
+        android:layout_marginEnd="35dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/spartanreg"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSave"
+        android:text="@string/save"
+        android:textColor="@color/app_theme"
+        android:textSize="12sp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:fontFamily="@font/spartanreg"
+        app:layout_constraintTop_toBottomOf="@id/et"
+        app:layout_constraintEnd_toEndOf="@id/et"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

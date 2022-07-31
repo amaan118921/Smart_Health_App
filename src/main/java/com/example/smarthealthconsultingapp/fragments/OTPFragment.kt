@@ -32,8 +32,6 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
     @Inject
     lateinit var auth: FirebaseAuth
 
-    @Inject
-    lateinit var repo: Repo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +99,6 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                 if (newUser) {
                     showToast("Verification Successful")
                 } else {
-                    if(key==Constants.DOC_HOME)
                         repo.setSharedPreferences(Constants.IS_LOGGED_IN, Constants.IS_LOGGED_IN)
                     showToast("Welcome Back")
                 }
@@ -112,7 +109,6 @@ class OTPFragment: BaseFragment(), OTPListener, View.OnClickListener {
                 }
                 else phone?.let {
                     repo.setSharedPreferences(Constants.DOC_PHONE, it)
-
                 }
                 finishAndStart()
             } else {

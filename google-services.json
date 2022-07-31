@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "253558409875-8l55uupd9q7e5m3vjcgrp1b39tr64a0v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smarthealthconsultingapp",
+            "certificate_hash": "5f12188f66c42284602b6d8a1ce37545ca7a4cab"
+          }
+        },
+        {
           "client_id": "253558409875-g6oc65ccm09d6k4q7ck7lh88e39r3ji2.apps.googleusercontent.com",
           "client_type": 3
         }

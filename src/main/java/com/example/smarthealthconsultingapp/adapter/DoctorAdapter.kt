@@ -12,7 +12,7 @@ import com.google.android.material.textview.MaterialTextView
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.item_view_doctor.view.*
 
-class DoctorAdapter(private val list: ArrayList<DoctorModel>, private val context: Context): RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>() {
+class DoctorAdapter(private val list: List<DoctorModel>, private val context: Context): RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>() {
 
     class DoctorViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val docName = view.findViewById<MaterialTextView>(R.id.tvDocName)
@@ -29,8 +29,9 @@ class DoctorAdapter(private val list: ArrayList<DoctorModel>, private val contex
         holder.apply {
             docName.text = list[position].docName
             speciality.text = list[position].speciality
-            status.text = list[position].status
-            if(list[position].status==context.getString(R.string.active)) holder.itemView.ivStatus.setImageDrawable(context.getDrawable(R.drawable.active))
+            if(list[position].status==1) status.text = context.getString(R.string.active)
+            else status.text = context.getString(R.string.offline)
+            if(list[position].status==1) holder.itemView.ivStatus.setImageDrawable(context.getDrawable(R.drawable.active))
             else holder.itemView.ivStatus.setImageDrawable(context.getDrawable(R.drawable.off))
         }
     }

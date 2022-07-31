@@ -7,7 +7,10 @@ import android.view.View
 import androidx.activity.addCallback
 import com.example.smarthealthconsultingapp.R
 import com.example.smarthealthconsultingapp.fragments.BaseFragment
+import com.example.smarthealthconsultingapp.utils.Constants
+import com.example.smarthealthconsultingapp.utils.Repo
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class PatientHomeFragment: BaseFragment() {
@@ -20,6 +23,15 @@ class PatientHomeFragment: BaseFragment() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             finishActivity()
         }
+        checkForProfile()
         bottomVisible()
+    }
+
+    private fun checkForProfile() {
+        if(repo.getSharedPreferences(Constants.IS_LOGGED_IN)=="") showProfileDialog()
+    }
+
+    private fun showProfileDialog() {
+        addFragment(Constants.PATIENT_DETAILS, null, true)
     }
 }

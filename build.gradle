@@ -1,6 +1,6 @@
 buildscript {
     dependencies {
-        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.gms:google-services:4.3.13'
     }
 }
 plugins {
@@ -70,8 +70,28 @@ dependencies {
     // circular image view
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //viewModel + liveData
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+
+    //Gson Converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //retrofit and moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //eventbus
+    implementation("org.greenrobot:eventbus:3.3.1")
 }
 
 dependencies {
+
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
     implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx' // kotlin
 }

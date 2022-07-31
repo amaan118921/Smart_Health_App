@@ -1,21 +1,27 @@
 package com.example.smarthealthconsultingapp.fragments
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
-import com.example.smarthealthconsultingapp.activity.MainActivity
 import com.example.smarthealthconsultingapp.R
+import com.example.smarthealthconsultingapp.activity.MainActivity
 import com.example.smarthealthconsultingapp.utils.Constants
+import com.example.smarthealthconsultingapp.utils.Repo
 import com.example.smarthealthconsultingapp.utils.makeVisible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.action_bar.*
+import kotlinx.android.synthetic.main.fragment_search.*
+import javax.inject.Inject
+
 
 @AndroidEntryPoint
 abstract class BaseFragment: Fragment() {
@@ -29,6 +35,8 @@ abstract class BaseFragment: Fragment() {
         return inflater.inflate(getLayoutRes(), container, false)
     }
 
+    @Inject
+    lateinit var repo: Repo
 
     fun addFragment(id: String, bundle: Bundle?, animations: Boolean) {
         getReqFragmentManager().commit {
@@ -88,5 +96,22 @@ abstract class BaseFragment: Fragment() {
         ivBell.makeVisible()
     }
 
+    fun showSoftKeyboard() {
+        val imm: InputMethodManager? =
+            getSystemService(requireContext(), InputMethodManager::class.java)
+        imm?.showSoftInput(etSearch, InputMethodManager.SHOW_IMPLICIT)
+    }
+
+    fun hideKeyboard() {
+        val imm: InputMethodManager? =
+            getSystemService(requireContext(), InputMethodManager::class.java)
+        imm?.hideSoftInputFromWindow(etSearch.windowToken, 0)
+    }
+
+    fun clearSharedPref() {
+        repo.clearSharedPreferences(Constants.PHONE)
+        repo.clearSharedPreferences(Constants.DOC_PHONE)
+        repo.clearSharedPreferences(Constants.IS_LOGGED_IN)
+    }
     private fun getReqFragmentManager(): FragmentManager = (requireActivity() as MainActivity).getReqFragmentManager()
 }

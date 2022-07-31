@@ -35,12 +35,54 @@
                 android:layout_marginTop="7dp"
                 />
 
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@id/tvHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/profile"
+                android:layout_marginTop="28dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/black"/>
+
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                app:trackCornerRadius="10dp"
+                android:indeterminate="true"
+                app:trackThickness="4dp"
+                app:indicatorColor="@color/app_theme"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivProfile"
+                android:layout_marginTop="13dp"
+                android:id="@+id/piDocDetails"
+                android:visibility="gone"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvUploadImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ivProfile"
+                android:gravity="center"
+                android:text="@string/upload_image"
+                android:textColor="@color/app_theme"
+                android:fontFamily="@font/spartanreg"
+                android:layout_marginTop="7dp"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvEnterName"
                 android:text="@string/enter_your_name"
-                app:layout_constraintTop_toBottomOf="@id/tvHeader"
+                app:layout_constraintTop_toBottomOf="@id/tvUploadImage"
                 android:layout_marginTop="18dp"
                 android:layout_marginStart="15dp"
                 android:textSize="13sp"
@@ -48,6 +90,7 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/spartanreg"
                 app:layout_constraintStart_toStartOf="parent"/>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -73,7 +116,7 @@
                     android:textSize="10sp"
                     android:id="@+id/etName"
                     android:hint="@string/enter_your_name"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_theme"
                     android:fontFamily="@font/spartanreg"
                     android:layout_marginStart="20dp"/>
             </com.google.android.material.card.MaterialCardView>
@@ -115,7 +158,7 @@
                     android:textSize="10sp"
                     android:id="@+id/etCollege"
                     android:hint="@string/enter_your_college"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_theme"
                     android:fontFamily="@font/spartanreg"
                     android:layout_marginStart="20dp"/>
             </com.google.android.material.card.MaterialCardView>
@@ -157,7 +200,7 @@
                     android:textSize="10sp"
                     android:id="@+id/etDegree"
                     android:hint="@string/enter_your_degree"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_theme"
                     android:fontFamily="@font/spartanreg"
                     android:layout_marginStart="20dp"/>
             </com.google.android.material.card.MaterialCardView>
@@ -199,7 +242,7 @@
                     android:textSize="10sp"
                     android:id="@+id/etSpeciality"
                     android:hint="@string/enter_your_speciality"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_theme"
                     android:fontFamily="@font/spartanreg"
                     android:layout_marginStart="20dp"/>
             </com.google.android.material.card.MaterialCardView>

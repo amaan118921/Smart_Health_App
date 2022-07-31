@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
     }
 
     private fun goToSearch() {
-        viewPager.setCurrentItem(2,true)
+        addFragment(Constants.SEARCH_ID, null)
     }
 
     private fun goToInspect() {

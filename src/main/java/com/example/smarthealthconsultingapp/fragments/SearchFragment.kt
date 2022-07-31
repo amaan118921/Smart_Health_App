@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
 import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smarthealthconsultingapp.R
@@ -42,6 +43,7 @@ class SearchFragment: BaseFragment(), TextWatcher, View.OnClickListener {
         ivClear.setOnClickListener(this)
         ivBack.setOnClickListener(this)
         etSearch.addTextChangedListener(this)
+        showSoftKeyboard()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -68,5 +70,10 @@ class SearchFragment: BaseFragment(), TextWatcher, View.OnClickListener {
             R.id.ivClear -> etSearch.setText("")
             R.id.ivBack -> popBackStack()
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hideKeyboard()
     }
 }

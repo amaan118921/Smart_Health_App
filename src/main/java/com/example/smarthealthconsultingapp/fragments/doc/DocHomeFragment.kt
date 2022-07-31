@@ -17,9 +17,6 @@ class DocHomeFragment : BaseFragment() {
         return R.layout.fragment_doc_home
     }
 
-    @Inject
-    lateinit var repo: Repo
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

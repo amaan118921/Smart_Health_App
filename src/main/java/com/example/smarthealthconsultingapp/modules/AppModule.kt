@@ -3,6 +3,7 @@ package com.example.smarthealthconsultingapp.modules
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 
 import dagger.Module
@@ -25,5 +26,11 @@ object AppModule {
     @Provides
     fun provideDatabaseInstance(): FirebaseDatabase {
         return FirebaseDatabase.getInstance()
+    }
+
+    @Singleton
+    @Provides
+    fun provideStorageInstance(): FirebaseStorage {
+        return FirebaseStorage.getInstance()
     }
 }

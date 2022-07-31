@@ -5,11 +5,14 @@ import com.example.smarthealthconsultingapp.bottomSheet.InspectHealthBottomSheet
 import com.example.smarthealthconsultingapp.fragments.*
 import com.example.smarthealthconsultingapp.fragments.doc.DocDetailsFragment
 import com.example.smarthealthconsultingapp.fragments.doc.DocHomeFragment
+import com.example.smarthealthconsultingapp.fragments.patients.PatientDetailsFragment
 import com.example.smarthealthconsultingapp.fragments.patients.PatientHomeFragment
 import com.example.smarthealthconsultingapp.fragments.patients.PatientLoginFragment
+import com.example.smarthealthconsultingapp.fragments.patients.PatientProfileFragment
 
 class Constants {
     companion object {
+        const val BASE_URL = "https://smart-health-rest-api.herokuapp.com/api/"
         const val PATIENT_LOGIN_ID = "PATIENT_LOGIN_ID"
         const val CHOOSE_ACCOUNT_ID = "CHOOSE_ACCOUNT_ID"
         const val OTP_ID = "OTP_ID"
@@ -26,6 +29,10 @@ class Constants {
         const val SEARCH_ID = "SEARCH_ID"
         const val DOC_SEARCH_ID = "DOC_SEARCH_ID"
         const val DOC_MODEL_LIST = "DOC_MODEL_LIST"
+        const val PATIENT_DETAILS = "PATIENT_DETAILS"
+        const val DONE = "DONE"
+        const val DATA = "DATA"
+
 
         fun getFragmentClass(id: String): Class<Fragment> {
             return when(id) {
@@ -39,6 +46,7 @@ class Constants {
                 INSPECT_ID -> InspectHealthFragment::class.java as Class<Fragment>
                 SEARCH_ID -> SearchDoctorFragment::class.java as Class<Fragment>
                 DOC_SEARCH_ID -> SearchFragment::class.java as Class<Fragment>
+                PATIENT_DETAILS -> PatientDetailsFragment::class.java as Class<Fragment>
                 else -> ChooseAccountFragment::class.java as Class<Fragment>
             }
         }
